@@ -9,21 +9,10 @@ import org.springframework.boot.*;
 @Controller
 @EnableAutoConfiguration
 
-public class HelloController {
+public class HomeController {
 
-    	@RequestMapping("/")
-	@ResponseBody
-	public String home() {
-		return "Hello World!";
-	}
-	
-	//@RequestMapping("/more")
-	//@ResponseBody
-	//String more() {
-	//	return "more option is selected";
-	//}
-
-	public static void main(String[] args){
-		SpringApplication.run(HelloController.class, args);
-	}
+    @RequestMapping("/")
+    public @ResponseBody String greeting() {
+        return "Hello World";
+    }
 }
