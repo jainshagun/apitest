@@ -5,23 +5,27 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-<<<<<<< HEAD
-		bat 'cd githubproject'
-=======
->>>>>>> e34a15e858771873b39786efdb722c77d5919733
-		bat 'mvn package'
+		bat 'mvn clean package'
             }
+	    post{
+		always{
+                     withSonarQubeEnv('sonarQube') {
+                     // requires SonarQube Scanner for Maven 3.2+
+                     bat 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
+                     }
+                }
+	    }
         }
+    stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+		//bat 'docker run -d -p 9999:8090 hello'
+            }
+    }
         stage('Test') {
             steps {
                 echo 'Testing..'
-		bat 'java -cp target/my-app-1.0-SNAPSHOT.jar com.mycompany.app.App '
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
+	    }
         }
     }
 }
