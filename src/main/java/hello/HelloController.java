@@ -13,9 +13,9 @@ public class HelloController {
 
     	@RequestMapping("/")
 	@ResponseBody
-	String home() {
+	//String home() {
 		return "Hello World!";
-	}
+	//}
 	
 	//@RequestMapping("/more")
 	//@ResponseBody
