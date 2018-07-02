@@ -11,17 +11,17 @@ import org.springframework.boot.*;
 
 public class HelloController {
 
-    @RequestMapping("/")
+    	@RequestMapping("/")
 	@ResponseBody
 	String home() {
 		return "Hello World!";
 	}
 	
-	@RequestMapping("/more")
-	@ResponseBody
-	String more() {
-		return "more option is selected";
-	}
+	//@RequestMapping("/more")
+	//@ResponseBody
+	//String more() {
+	//	return "more option is selected";
+	//}
 
 	public static void main(String[] args){
 		SpringApplication.run(HelloController.class, args);
