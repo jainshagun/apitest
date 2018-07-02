@@ -13,7 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class SmokeTest {
 
     @Autowired
-    private HomeController controller;
+    private HelloController controller;
 
     @Test
     public void contexLoads() throws Exception {
