@@ -9,7 +9,7 @@ import org.springframework.boot.*;
 @Controller
 @EnableAutoConfiguration
 
-public class HomeController {
+public class HelloController {
 
     @RequestMapping("/")
     public @ResponseBody String greeting() {
