@@ -25,7 +25,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
-		bat 'cd hellocucumber'
+		cd hellocucumber
 		bat 'dir'
 	    }
         }
