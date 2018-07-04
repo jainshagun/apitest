@@ -26,6 +26,7 @@ pipeline {
             steps {
                 echo 'Testing..'
 		echo "$WORKSPACE"
+		bat "cd $WORKSPACE/hellocucumber"
 		bat 'dir'
 	    }
         }
