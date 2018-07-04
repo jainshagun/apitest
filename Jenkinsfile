@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-		bat 'mvn clean package'
+		bat 'mvn clean package docker:build'
             }
 	    post{
 		always{
@@ -19,7 +19,7 @@ pipeline {
     stage('Deploy') {
             steps {
                 echo 'Deploying....'
-		//bat 'docker run -d -p 9999:8090 hello'
+		bat 'docker run -d -p 9999:8090 hello'
             }
     }
         stage('Test') {
