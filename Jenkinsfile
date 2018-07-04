@@ -25,8 +25,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
-		echo "$WORKSPACE"
-		bat "$WORKSPACE\hellocucumber\mvn test"
+		bat "mvn test"
 	    }
         }
     }
