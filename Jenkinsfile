@@ -25,7 +25,8 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
-		 bat 'cd hellocucumber; mvn test'
+		 bat 'cd hellocucumber'
+		 bat 'mvn test'
 	    }
         }
     }
