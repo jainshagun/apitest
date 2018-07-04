@@ -26,7 +26,7 @@ pipeline {
             steps {
                 echo 'Testing..'
 		dir ("$WORKSPACE/hellocucumber")
-		bat 'dir'
+		bat 'mvn test'
 	    }
         }
     }
