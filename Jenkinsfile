@@ -26,6 +26,7 @@ pipeline {
             steps {
                 echo 'Testing..'
 		bat 'cd hellocucumber'
+		bat 'dir'
 	    }
         }
     }
