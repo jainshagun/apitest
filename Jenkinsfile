@@ -25,7 +25,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
-		cd hellocucumber
+		echo "$WORKSPACE"
 		bat 'dir'
 	    }
         }
