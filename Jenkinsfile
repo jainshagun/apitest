@@ -25,7 +25,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
-		dir ("$WORKSPACE/hellocucumber")
+		dir("$WORKSPACE/hellocucumber")
 		bat 'mvn test'
 	    }
         }
