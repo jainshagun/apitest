@@ -33,7 +33,7 @@ pipeline {
     	stage('Create JIRA') {
 	    steps {
                 echo 'Creting JIRA....'
-		sh './CICDscript.sh -s  -d test -e UAT2 -c WCS'
+		sh './CICDscript.sh -k "CICD"-s "CICD Pipeline" -d "CICD Pipeline test"'
             }
     	}
     }
