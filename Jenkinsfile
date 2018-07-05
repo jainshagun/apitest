@@ -25,6 +25,7 @@ pipeline {
     	stage('Test') {
             steps {
                 echo 'Testing..'
+		bat 'timeout /t 30'
 		dir("$WORKSPACE/hellocucumber") {
 			bat 'mvn test'
 		}
