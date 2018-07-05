@@ -5,13 +5,13 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-		bat 'mvn clean package docker:build'
+		sh 'mvn clean package docker:build'
             }
 	    post{
 		always{
                      withSonarQubeEnv('sonarQube') {
                      // requires SonarQube Scanner for Maven 3.2+
-                     bat 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
+                     sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
                      }
                 }
 	    }
@@ -19,7 +19,7 @@ pipeline {
     	stage('Deploy') {
             steps {
                 echo 'Deploying....'
-		bat 'docker run -d -p 9999:8080 hello'
+		sh 'docker run -d -p 9999:8080 hello'
             }
     	}
     	stage('Test') {
@@ -27,7 +27,7 @@ pipeline {
                 echo 'Testing..'
 		sh 'sleep 30'
 		dir("$WORKSPACE/hellocucumber") {
-			bat 'mvn test'
+			sh 'mvn test'
 		}
 	    }
         }
