@@ -16,13 +16,13 @@ pipeline {
                 }
 	    }
         }
-    stage('Deploy') {
+    	stage('Deploy') {
             steps {
                 echo 'Deploying....'
 		bat 'docker run -d -p 9999:8080 hello'
             }
-    }
-        stage('Test') {
+    	}
+    	stage('Test') {
             steps {
                 echo 'Testing..'
 		dir("$WORKSPACE/hellocucumber") {
@@ -30,5 +30,11 @@ pipeline {
 		}
 	    }
         }
+    	stage('Create JIRA') {
+	    steps {
+                echo 'Creting JIRA....'
+		sh './CICDscript.sh -s  -d test -e UAT2 -c WCS'
+            }
+    	}
     }
 }
