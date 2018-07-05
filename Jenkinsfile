@@ -25,7 +25,7 @@ pipeline {
     	stage('Test') {
             steps {
                 echo 'Testing..'
-		sh 'sleep 30'
+		bat 'sleep 30'
 		dir("$WORKSPACE/hellocucumber") {
 			bat 'mvn test'
 		}
@@ -34,7 +34,7 @@ pipeline {
     	stage('Create JIRA') {
 	    steps {
                 echo 'Creting JIRA....'
-		sh './CICDscript.sh -k "CICD"-s "CICD Pipeline" -d "CICD Pipeline test"'
+		bat './CICDscript.sh -k "CICD"-s "CICD Pipeline" -d "CICD Pipeline test"'
             }
     	}
     }
